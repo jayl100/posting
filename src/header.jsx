@@ -1,4 +1,4 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 import './post.css'
 
 function Header() {
@@ -20,7 +20,6 @@ return (
                 </div>
             </div>
         </header>
-
     </>
 )
 }
