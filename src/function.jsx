@@ -1,7 +1,7 @@
 import {useState} from 'react';
 // import Post from "./post.jsx";
 
-function postFunctions() {
+function postFunction() {
     const [posts, setPosts] = useState([])
     const [setIndex, nextIndex] = useState(1)
 
@@ -50,6 +50,6 @@ function postFunctions() {
 }
 
 
-export default postFunctions;
+export default postFunction;
 
 

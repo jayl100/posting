@@ -1,9 +1,9 @@
 import {useState} from 'react';
 import './post.css';
-import postFunctions from './functions.jsx';
+import postFunction from './function.jsx';
 
 function Post() {
-    const { handlePostSubmit, postRenderPage } = postFunctions()
+    const { handlePostSubmit, postRenderPage } = postFunction()
     return (
         <div className="postdemo">
             {/* 글쓰기 */}
