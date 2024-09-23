@@ -3,12 +3,13 @@ import './post.css';
 import postFunction from './function.jsx';
 
 function Post() {
-    const { handlePostSubmit, postRenderPage } = postFunction()
+    const {handlePostSubmit, postRenderPage, onRemove, onEdit, onEditSubmit} = postFunction()
+
     return (
         <div className="postdemo">
             {/* 글쓰기 */}
             <div className="entry_contents">
-            <section className="posting_area">
+                <section className="posting_area">
                     <div className="container">
                         <h2>글쓰기</h2>
                         <div className="contents">
@@ -19,7 +20,8 @@ function Post() {
                             </ul>
                         </div>
                         <div className="btn_area">
-                            <button className="btn_submit" type="button" onClick={handlePostSubmit}>등록</button>
+                            <button className="btn_submit" id='submitEdit' type="button" onClick={() =>
+                                (document.getElementById('submitEdit').innerHTML === '등록') ? handlePostSubmit() : onEditSubmit()}>등록</button>
                         </div>
                     </div>
                 </section>

@@ -88,7 +88,9 @@ h2 {
     border-bottom: 1px solid #DCDCDC;
     padding: 30px 0;
     gap: 10px;
+    min-height: 86px;
 }
+
 .list_area .post_title {
     line-height: 1.4;
     font-size: 18px;
@@ -109,8 +111,47 @@ h2 {
     text-align: center;
 }
 
+.list_area .post_list .hover {
+    display: none;
+}
+
+.list_area .post_list:hover {
+    overflow: hidden;
+    background-color: #fafafa;
+    justify-content: center;
+}
+
+.list_area .post_list:hover .hover {
+    position: absolute;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 12px;
+}
+
+.list_area .post_list:hover .hover .btn_submit {
+    font-size: 16px;
+    font-weight: 600;
+    background: #fff;
+    border: 2px solid #222222;
+    color: #222222;
+    height: 40px;
+    width: 80px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.list_area .post_list:hover .hover .btn_submit:hover {
+    color: #F42A67;
+    background-color: #fff;
+    border: 2px solid #F42A67;
+}
 
 
+.list_area .post_list:hover .post_no,
+.list_area .post_list:hover .post_title,
+.list_area .post_list:hover .post_date {
+    opacity: 12%;
+}
 /* +++++++++++++++++ posting page +++++++++++++++++ */
 
 .posting_area {
