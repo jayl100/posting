@@ -3,7 +3,7 @@ import './post.css';
 import postFunction from './function.jsx';
 
 function Post() {
-    const {handlePostSubmit, postRenderPage, onRemove, onEdit, onEditSubmit} = postFunction()
+    const {handlePostSubmit, postRenderPage} = postFunction()
 
     return (
         <div className="postdemo">
@@ -20,8 +20,7 @@ function Post() {
                             </ul>
                         </div>
                         <div className="btn_area">
-                            <button className="btn_submit" id='submitEdit' type="button" onClick={() =>
-                                (document.getElementById('submitEdit').innerHTML === '등록') ? handlePostSubmit() : onEditSubmit()}>등록</button>
+                            <button className="btn_submit" id='submitEdit' type="button" onClick={() => handlePostSubmit()}>등록</button>
                         </div>
                     </div>
                 </section>

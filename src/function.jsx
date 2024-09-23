@@ -11,6 +11,7 @@ function postFunction() {
     const setSubmitBtnText = document.getElementById('submitEdit') // 버튼명 등록 >> 수정
 
 
+    // 등록 클릭 시 등록, 수정 버튼 클릭 후 수정되게끔 함.
     const handlePostSubmit = () => {
         const postDate = new Date()
         const postFormatDate = new Intl.DateTimeFormat('ko-KR', {
@@ -18,32 +19,35 @@ function postFunction() {
             month: '2-digit',
             day: '2-digit'
         }).format(postDate)
-        if (postText.value.trim()) {
-            setPosts([{index: index, text: postText.value, date: postFormatDate}, ...posts])
-            setIndex(index + 1)
-            document.getElementById('post_text').value = ''
+
+        // 버튼명이 '등록' 이고 내용이 있을 시 게시글이 등록
+        if (setSubmitBtnText.innerHTML === '등록' && postText.value.trim()) {
+                setPosts([{index: index, text: postText.value, date: postFormatDate}, ...posts])
+                setIndex(index + 1)
+                document.getElementById('post_text').value = ''
+        }
+        //
+        else {
+            setPosts(posts.map(post => post.index === editPostId ? {...post, text: postText.value} : post))
+            setSubmitBtnText.innerHTML = '등록'
+            postText.value = ''
+            alert('수정이 완료되었습니다.')
         }
     }
 
+    // 게시글 삭제
     const onRemove = (id) => {
         setPosts(posts.filter(post => post.index !== id))
         alert('삭제가 완료되었습니다.')
     }
 
-    // onEdit > post_text에 post_title 노출 > post_text가 post_title로 변경
+    // 게시글 수정 (textarea에서 수정됨)
     const onEdit = (id) => {
         setEditPostId(id) // editPostId === id로 설정
 
         setSubmitBtnText.innerHTML = '수정'
         postText.value = posts.find(post => post.index === id)?.text
         // h3 text >>>  text.value
-    }
-
-    const onEditSubmit = () => {
-        setPosts(posts.map(post => post.index === editPostId ? {...post, text: postText.value} : post))
-        setSubmitBtnText.innerHTML = '등록'
-        postText.value = ''
-        alert('수정이 완료되었습니다.')
     }
 
     const postRenderPage = () => {
@@ -82,10 +86,7 @@ function postFunction() {
 
     return {
         handlePostSubmit,
-        postRenderPage,
-        onRemove,
-        onEdit,
-        onEditSubmit
+        postRenderPage
     }
 }
 
