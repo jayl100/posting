@@ -1,5 +1,5 @@
 import {useState} from 'react';
-// import Post from "./post.jsx";
+// import AppPost from "./App-post.jsx";
 
 function postFunction() {
     const [posts, setPosts] = useState([])

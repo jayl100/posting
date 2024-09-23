@@ -1,14 +1,14 @@
 import {useState} from 'react';
-import './post.css';
+import './App-post.css';
 import postFunction from './function.jsx';
 
-function Post() {
+function AppPost() {
     const { handlePostSubmit, postRenderPage } = postFunction()
     return (
         <div className="postdemo">
             {/* 글쓰기 */}
             <div className="entry_contents">
-            <section className="posting_area">
+                <section className="posting_area">
                     <div className="container">
                         <h2>글쓰기</h2>
                         <div className="contents">
@@ -38,6 +38,6 @@ function Post() {
     )
 }
 
-export default Post;
+export default AppPost;
 
 
