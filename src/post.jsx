@@ -8,6 +8,7 @@ function Post() {
     return (
         <div className="postdemo">
             {/* 글쓰기 */}
+
             <div className="entry_contents">
                 <section className="posting_area">
                     <div className="container">

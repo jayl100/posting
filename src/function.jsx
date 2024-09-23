@@ -2,14 +2,13 @@ import {useState} from 'react';
 
 // import Post from "./post.jsx";
 
-function postFunction() {
 
+function postFunction() {
     const [posts, setPosts] = useState([])
     const [index, setIndex] = useState(1)
     const [editPostId, setEditPostId] = useState(null)
     const postText = document.getElementById('post_text')
     const setSubmitBtnText = document.getElementById('submitEdit') // 버튼명 등록 >> 수정
-
 
     // 등록 클릭 시 등록, 수정 버튼 클릭 후 수정되게끔 함.
     const handlePostSubmit = () => {
@@ -21,10 +20,14 @@ function postFunction() {
         }).format(postDate)
 
         // 버튼명이 '등록' 이고 내용이 있을 시 게시글이 등록
-        if (setSubmitBtnText.innerHTML === '등록' && postText.value.trim()) {
+        if (setSubmitBtnText.innerHTML === '등록') {
+            if (postText.value.trim()) {
                 setPosts([{index: index, text: postText.value, date: postFormatDate}, ...posts])
                 setIndex(index + 1)
                 document.getElementById('post_text').value = ''
+            } else {
+                alert('등록 내용을 입력해주세요.')
+            }
         }
         //
         else {
@@ -38,12 +41,18 @@ function postFunction() {
     // 게시글 삭제
     const onRemove = (id) => {
         setPosts(posts.filter(post => post.index !== id))
+        setEditPostId(null)  // 삭제할 때 수정 모드도 취소
+        setSubmitBtnText.innerHTML = '등록'
+        postText.value = ''
+
         alert('삭제가 완료되었습니다.')
     }
 
     // 게시글 수정 (textarea에서 수정됨)
     const onEdit = (id) => {
         setEditPostId(id) // editPostId === id로 설정
+        scroll(0, 0) // 수정버튼 누르면 스크롤 상단으로 이동
+        postText.select() // 수정버튼 누르면  textarea 선택 on
 
         setSubmitBtnText.innerHTML = '수정'
         postText.value = posts.find(post => post.index === id)?.text
