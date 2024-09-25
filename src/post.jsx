@@ -3,7 +3,7 @@ import './post.css';
 import postFunction from './function.jsx';
 
 function Post() {
-    const {handlePostSubmit, postRenderPage} = postFunction()
+    const {handlePostSubmit, postRenderPage, postText, submitBtnText} = postFunction()
 
     return (
         <div className="postdemo">
@@ -16,12 +16,12 @@ function Post() {
                         <div className="contents">
                             <ul>
                                 <li>
-                                    <textarea id="post_text" cols="30" rows="5" placeholder="내용을 입력하세요."></textarea>
+                                    <textarea ref={postText} cols="30" rows="5" placeholder="내용을 입력하세요."></textarea>
                                 </li>
                             </ul>
                         </div>
                         <div className="btn_area">
-                            <button className="btn_submit" id='submitEdit' type="button" onClick={() => handlePostSubmit()}>등록</button>
+                            <button ref={submitBtnText} className="btn_submit" type="button" onClick={() => handlePostSubmit()}>등록</button>
                         </div>
                     </div>
                 </section>
