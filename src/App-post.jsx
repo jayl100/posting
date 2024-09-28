@@ -1,9 +1,8 @@
-import {useState} from 'react';
 import './App-post.css';
 import postFunction from './function.jsx';
 
 function AppPost() {
-    const { handlePostSubmit, postRenderPage } = postFunction()
+    const { handlePostSubmit, postRenderPage, PostText } = postFunction()
     return (
         <div className="postdemo">
             {/* 글쓰기 */}
@@ -14,7 +13,7 @@ function AppPost() {
                         <div className="contents">
                             <ul>
                                 <li>
-                                    <textarea id="post_text" cols="30" rows="5" placeholder="내용을 입력하세요."></textarea>
+                                    <textarea ref={PostText} cols="30" rows="5" placeholder="내용을 입력하세요."></textarea>
                                 </li>
                             </ul>
                         </div>

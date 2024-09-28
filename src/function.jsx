@@ -1,22 +1,22 @@
-import {useState} from 'react';
+import {useState, useRef} from 'react';
 // import AppPost from "./App-post.jsx";
 
 function postFunction() {
     const [posts, setPosts] = useState([])
     const [setIndex, nextIndex] = useState(1)
+    const PostText = useRef(null)
 
     const handlePostSubmit = () => {
-        const postText = document.getElementById('post_text').value
         const postDate = new Date()
         const postFormatDate = new Intl.DateTimeFormat('ko-KR', {
             year: '2-digit',
             month: '2-digit',
             day: '2-digit'
         }).format(postDate)
-        if (postText.trim()) {
-            setPosts([{index: setIndex, text: postText, date: postFormatDate}, ...posts])
+        if (PostText.current.value.trim()) {
+            setPosts([{index: setIndex, text: PostText.current.value, date: postFormatDate}, ...posts])
             nextIndex(setIndex + 1)
-            document.getElementById('post_text').value = ''
+            PostText.current.value = ''
         }
     }
     const postRenderPage = () => {
@@ -46,6 +46,7 @@ function postFunction() {
     return {
         handlePostSubmit,
         postRenderPage,
+        PostText
     }
 }
 
