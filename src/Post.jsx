@@ -1,5 +1,5 @@
 import React from 'react';
-import UsePostFunction from './components/PostFunction.jsx';
+import usePostFunction from './utils/postFunction';
 import PostForm from './components/PostForm';
 import PostList from './components/PostList';
 import './post.css';
@@ -12,10 +12,10 @@ function Post() {
         isEditing,
         onEdit,
         onRemove,
-    } = UsePostFunction();
+    } = usePostFunction();
 
     return (
-        <div>
+        <div className="postdemo">
             <PostForm handlePostSubmit={handlePostSubmit} postText={postText} isEditing={isEditing} />
             <section className="list_area">
                 <div className="container">

@@ -1,68 +1,191 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* +++++++++++++++++ 디폴트 +++++++++++++++++ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+body { font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif; position: relative; color: #000; box-sizing: border-box; outline: 0; line-height: 1; margin: 0; padding-bottom: 120px; -ms-overflow-style: none; }
+article, header, nav, section { display: block; }
+a { text-decoration: none; color: inherit; }
+ul { padding: 0; margin: 0; list-style: none;}
+.container { margin: 0 auto; height: 100%; max-width: 900px; width: 100%; padding: 0 40px; }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+h2 {
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 60px;
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+
+/* +++++++++++++++++ main page (list) +++++++++++++++++ */
+
+.list_area {
+    padding: 80px 0;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.list_area ul {
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border-top: 2px solid #222222;
+    border-bottom: 2px solid #222222;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+.list_area .post_list {
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    border-bottom: 1px solid #DCDCDC;
+    padding: 30px 0;
+    gap: 10px;
+    min-height: 86px;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.list_area .post_title {
+    line-height: 1.4;
+    font-size: 18px;
+    width: 40rem;
+    font-weight: 700;
+    word-break: break-word;
+}
+.list_area .post_no {
+    width: 4rem;
+    font-size: 16px;
+    color: #999999;
+    text-align: center;
+}
+.list_area .post_date {
+    width: 6rem;
+    font-size: 16px;
+    color: #999999;
+    text-align: center;
+}
+
+.list_area .post_list .hover {
+    display: none;
+}
+
+.list_area .post_list:hover {
+    overflow: hidden;
+    background-color: #fafafa;
+    justify-content: center;
+}
+
+.list_area .post_list:hover .hover {
+    position: absolute;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 12px;
+}
+
+.list_area .post_list:hover .hover .btn_submit {
+    font-size: 16px;
+    font-weight: 600;
+    background: #fff;
+    border: 2px solid #222222;
+    color: #222222;
+    height: 40px;
+    width: 80px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.list_area .post_list:hover .hover .btn_submit:hover {
+    color: #F42A67;
+    background-color: #fff;
+    border: 2px solid #F42A67;
+}
+
+
+.list_area .post_list:hover .post_no,
+.list_area .post_list:hover .post_title,
+.list_area .post_list:hover .post_date {
+    opacity: 12%;
+}
+/* +++++++++++++++++ posting page +++++++++++++++++ */
+
+.posting_area {
+    background: #fafafa;
+    padding: 80px 0;
+}
+
+
+.posting_area ul {
+    height: 100%;
+    position: relative;
+    border-top: 2px solid #222222;
+    border-bottom: 2px solid #222222;
+
+}
+
+.posting_area textarea {
+    font-family: "Pretendard", sans-serif;
+    height: 120px;
+    width: 100%;
+    padding: 1rem;
+    line-height: 1.5;
+    font-size: 16px;
+    font-weight: 500;
+    background: #fafafa;
+    border: none;
+    resize: none;
+    position: relative;
+    border-top: 2px solid #222222;
+    border-bottom: 2px solid #222222;
+
+}
+.posting_area textarea.on {
+    border-color: #191919;
+}
+.posting_area textarea::placeholder {
+    color: #999999;
+}
+.posting_area textarea:focus {
+    background: #ffffff;
+    outline: none;
+}
+
+.posting_area .btn_area {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.posting_area .btn_area .btn_submit {
+    font-size: 18px;
+    font-weight: 600;
+    background: #fafafa;
+    border: 2px solid #222;
+    color: #222;
+    height: 50px;
+    padding: 0 60px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.posting_area .btn_area .btn_submit:hover {
+    color: #F42A67;
+    background-color: #fff;
+    border: 2px solid #F42A67;
+}
+
+
+/* +++++++++++++++++ 내용없음 +++++++++++++++++ */
+
+.list_area .empty_contents {
+    border-bottom: 2px solid #222222;
+    border-top: 2px solid #222222;
+}
+
+.list_area .empty_contents p {
+    text-align: center;
+    padding: 80px 0;
+    font-size: 16px;
+    font-weight: 500;
+    color: #999999;
 }
