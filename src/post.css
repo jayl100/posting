@@ -12,52 +12,6 @@ a { text-decoration: none; color: inherit; }
 ul { padding: 0; margin: 0; list-style: none;}
 .container { margin: 0 auto; height: 100%; max-width: 900px; width: 100%; padding: 0 40px; }
 
-/* +++++++++++++++++ 헤더 +++++++++++++++++ */
-header {
-    height: 80px;
-    width: 100%;
-    background: #ffffff;
-    border-bottom: #d9d9d9 solid 1px;
-}
-
-header .warp {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-}
-
-header .warp .logo a img {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-items: center;
-}
-
-header .warp .nav {
-    align-items: center;
-}
-
-header .warp .nav ul {
-    display: flex;
-    gap: 20px;
-    /*padding: 0;*/
-    /*margin: 0;*/
-}
-
-header .warp .nav ul li {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 30px;
-    padding: 0 20px;
-    font-size: 18px;
-    font-weight: 600;
-}
-
-header .warp .nav ul li:hover { transition: all .2s; color: #F42A67; }
-
-
 h2 {
     font-size: 32px;
     text-align: center;
@@ -174,12 +128,15 @@ h2 {
     width: 100%;
     padding: 1rem;
     line-height: 1.5;
-    /*color: #222222;*/
     font-size: 16px;
     font-weight: 500;
     background: #fafafa;
     border: none;
     resize: none;
+    position: relative;
+    border-top: 2px solid #222222;
+    border-bottom: 2px solid #222222;
+
 }
 .posting_area textarea.on {
     border-color: #191919;

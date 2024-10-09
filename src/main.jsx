@@ -1,12 +1,9 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-// import { useState } from 'react';
-import Post from './post.jsx'
-import './post.css'
-
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import Post from './Post';
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
-      <Post />
-  </StrictMode>,
-)
+    <React.StrictMode>
+        <Post />
+    </React.StrictMode>,
+);
