@@ -1,9 +1,8 @@
 import { useState, useRef } from 'react';
 
-
-function UsePostFunction() {
+function usePost() {
     const [posts, setPosts] = useState([]);
-    const [index, setIndex] = useState(1);
+    const index = useRef(1);
     const [editPostId, setEditPostId] = useState(null);
     const postText = useRef(null);
     const [isEditing, setIsEditing] = useState(false);
@@ -29,8 +28,8 @@ function UsePostFunction() {
             setEditPostId(null);
             alert('수정이 완료되었습니다.');
         } else {
-            setPosts([{ index, text: postText.current.value, date: postFormatDate }, ...posts]);
-            setIndex(index + 1);
+            setPosts([{ index : index.current, text: postText.current.value, date: postFormatDate }, ...posts]);
+            index.current = index.current + 1;
             alert('등록이 완료되었습니다.');
         }
 
@@ -42,6 +41,7 @@ function UsePostFunction() {
         setEditPostId(null);
         setIsEditing(false);
         alert('삭제가 완료되었습니다.');
+        postText.current.value = '';
     };
 
     const onEdit = (id) => {
@@ -61,4 +61,4 @@ function UsePostFunction() {
     };
 }
 
-export default UsePostFunction;
+export default usePost;

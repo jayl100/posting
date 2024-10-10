@@ -1,8 +1,8 @@
 import React from 'react';
-import usePostFunction from './utils/postFunction';
+import usePost from './hooks/usePost.js';
 import PostForm from './components/PostForm';
 import PostList from './components/PostList';
-import './post.css';
+import './index.css';
 
 function Post() {
     const {
@@ -12,7 +12,7 @@ function Post() {
         isEditing,
         onEdit,
         onRemove,
-    } = usePostFunction();
+    } = usePost();
 
     return (
         <div className="postdemo">

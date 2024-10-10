@@ -6,7 +6,7 @@ function PostForm({ handlePostSubmit, postText, isEditing }) {
             <div className="container">
                 <h2>글쓰기</h2>
                 <div className="contents">
-                    <textarea ref={postText} cols="30" rows="5" placeholder="내용을 입력하세요."></textarea>
+                    <textarea ref={postText} cols="30" rows="5" placeholder="내용을 입력하세요."/>
                 </div>
                 <div className="btn_area">
                     <button onClick={handlePostSubmit} className="btn_submit">
