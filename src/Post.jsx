@@ -1,7 +1,7 @@
 import React from 'react';
-import usePost from './hooks/usePost.js';
-import PostForm from './components/PostForm';
-import PostList from './components/PostList';
+import usePost from './hook/usePost.js';
+import PostForm from './components/PostForm.jsx';
+import PostList from './components/PostList.jsx';
 import './index.css';
 
 function Post() {

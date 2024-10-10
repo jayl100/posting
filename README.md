@@ -13,3 +13,5 @@ upload post and view page
 - 텍스트 수정 후 수정 버튼 클릭 시 해당 게시글의 내용 변경
 
 ### 241010_컴포넌트 생성 및 정리
+- PostForm, PostItem, PostList 분리
+- usePost 분리
