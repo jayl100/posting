@@ -15,3 +15,6 @@ upload post and view page
 ### 241010_컴포넌트 생성 및 정리
 - PostForm, PostItem, PostList 분리
 - usePost 분리
+
+### 241011_server 생성
+- $ posting % npm run dev
