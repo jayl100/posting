@@ -16,7 +16,7 @@ function Post() {
 
     return (
         <div className="postdemo">
-            <PostForm handlePostSubmit={handlePostSubmit} postText={postText} isEditing={isEditing} />
+            <PostForm handlePostSubmit={handlePostSubmit} postText={postText} isEditing={isEditing}/>
             <section className="list_area">
                 <div className="container">
                     <h2>게시판</h2>

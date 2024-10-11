@@ -15,11 +15,13 @@ function usePost() {
             day: '2-digit',
         }).format(postDate);
 
-        if (!postText.current.value.trim()) {
-            alert('등록 내용을 입력해주세요.');
+        // 빈칸일 시 내용 등록 불가
+        if (postText.current.value === '') {
+            alert('내용을 입력해주세요.');
             return;
         }
 
+        // 수정상태일 떄
         if (isEditing) {
             setPosts(posts.map(post => post.index === editPostId
                 ? { ...post, text: postText.current.value }
@@ -27,7 +29,9 @@ function usePost() {
             setIsEditing(false);
             setEditPostId(null);
             alert('수정이 완료되었습니다.');
-        } else {
+        }
+        // 등록할 때
+        else {
             setPosts([{ index : index.current, text: postText.current.value, date: postFormatDate }, ...posts]);
             index.current = index.current + 1;
             alert('등록이 완료되었습니다.');
@@ -49,6 +53,7 @@ function usePost() {
         postText.current.value = post.text;
         setEditPostId(id);
         setIsEditing(true);
+        postText.current.focus(); // 수정 클릭 시 글쓰기 포커스.
     };
 
     return {
