@@ -1,6 +1,7 @@
 import React from "react";
 
 function PostItem({ post, onEdit, onRemove }) {
+
   return (
     <li className="post_list">
       <span className="post_no">{post.index}</span>
