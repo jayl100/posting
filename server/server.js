@@ -1,8 +1,25 @@
+// server.js
 const express = require('express');
-const app = express()
+const app = express();
+const port = 1111; // 서버 포트 번호
 
-app.listen(1111)
+const cors = require("cors");
+app.use(cors());
 
-const postRouter = require('./postPage');
+const postPage = require("./router");
 
-app.use("/", postRouter)
+// const corsOptions = {
+//   origin : '*',
+//   optionsSuccessStatus: 200,
+// };
+
+app.use(express.json()); // JSON 형식의 요청 본문을 파싱
+
+
+// router
+app.use("/", postPage);
+
+
+app.listen(port, () => {
+  console.log(`*** server is running on ${port} ***`);
+});

@@ -1,4 +1,6 @@
 import React from "react";
+// import PropTypes from "prop-types";
+
 
 function PostForm({ handlePostSubmit, postText, handleTextChange, isEditing, textAreaRef }) {
   return (
@@ -26,5 +28,14 @@ function PostForm({ handlePostSubmit, postText, handleTextChange, isEditing, tex
     </div>
   );
 }
+
+// PropTypes 설정
+// PostForm.propTypes = {
+//   handlePostSubmit: PropTypes.func.isRequired, // 필수 함수
+//   postText: PropTypes.string.isRequired, // 필수 문자열
+//   handleTextChange: PropTypes.func.isRequired, // 필수 함수
+//   isEditing: PropTypes.bool.isRequired, // 필수 불리언
+//   textAreaRef: PropTypes.shape({ current: PropTypes.instanceOf(Element) }), // ref 객체
+// };
 
 export default PostForm;

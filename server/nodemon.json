@@ -1,0 +1,5 @@
+{
+  "exec": "node -r @babel/register server.js",
+  "watch": ["server.js", "client/src/"],
+  "ext": "js,json"
+}

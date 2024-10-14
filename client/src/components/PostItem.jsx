@@ -1,4 +1,6 @@
 import React from "react";
+// import PropTypes from "prop-types";
+
 
 function PostItem({ post, onEdit, onRemove }) {
 
@@ -20,5 +22,16 @@ function PostItem({ post, onEdit, onRemove }) {
     </li>
   );
 }
+
+// PropTypes 설정
+// PostItem.propTypes = {
+//     post: PropTypes.shape({
+//         index: PropTypes.number.isRequired, // 필수 숫자
+//         text: PropTypes.string.isRequired, // 필수 문자열
+//         date: PropTypes.string.isRequired, // 필수 문자열
+//     }).isRequired, // 필수 객체
+//     onEdit: PropTypes.func.isRequired, // 필수 함수
+//     onRemove: PropTypes.func.isRequired, // 필수 함수
+// };
 
 export default PostItem;
